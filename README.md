@@ -1,64 +1,66 @@
-<<<<<<< HEAD
-# MyApp
+# Angular 19
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+This repository contains an Angular 19 application built using Angular CLI 19.2.27 and Angular Material 19.
 
-## Development server
+## Development Server
 
-To start a local development server, run:
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser at http://localhost:4200/.
 
-## Code scaffolding
+The application automatically reloads whenever you modify source files.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Code Scaffolding
+
+Generate a new component:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Generate other Angular resources:
+
+```bash
+ng generate directive directive-name
+ng generate service service-name
+ng generate pipe pipe-name
+ng generate module module-name
+```
+
+For more schematics:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## Build
 
-To build the project run:
+Build the application:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts are stored in the `dist/` directory.
 
-## Running unit tests
+## Unit Tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Angular Material
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This project uses Angular Material 19 for UI components.
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# angular19
-This is about mat angular 19 application
->>>>>>> 0588bd936a22b4655526a6781582c39f659ceb52
+- [Angular Documentation](https://angular.dev/)
+- [Angular CLI](https://angular.dev/tools/cli)
+- [Angular Material](https://material.angular.dev/)
