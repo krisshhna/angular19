@@ -1,1 +1,39 @@
-<p>a-user works!</p>
+<form [formGroup]="userForm"> 
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" formControlName="name" appCapLet matInput>
+            <mat-error *ngIf="userForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="text" formControlName="email" matInput>
+            <mat-error *ngIf="userForm.get('email')?.hasError('required')">Email is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input type="text" formControlName="phone" matInput appPhone>
+            <mat-error *ngIf="userForm.get('phone')?.hasError('required')">Phone is required</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Adhar Card</mat-label>
+            <input type="text" formControlName="adharCard" matInput appAadharCard>
+            <mat-error *ngIf="userForm.get('adharCard')?.hasError('required')">AdharCard is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>PanCard</mat-label>
+            <input type="text" formControlName="panCard" appPanCard matInput>
+            <mat-error *ngIf="userForm.get('panCard')?.hasError('required')">panCard is required</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <button type="button" mat-button (click)="submitUser()" [disabled]="!userForm.valid">Submit</button>
+    </div>
+</form>

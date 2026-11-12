@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-a-shop-serv',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './a-shop-serv.component.css'
 })
 export class AShopServComponent {
+  public fb = inject(FormBuilder);
+  shopServ  = this.fb.group({
+    name:   ['',[Validators.required]],
+    status: [''],
+  });
 
+  shopServSubmit(){
+    if(this.shopServ.valid){
+      console.log(this.shopServ.value);
+    }
+  }
 }

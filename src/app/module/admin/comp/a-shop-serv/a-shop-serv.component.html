@@ -1,1 +1,12 @@
-<p>a-shop-serv works!</p>
+<form [formGroup]="shopServ">
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" appCapLet matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-slide-toggle color="warn" checked="true" formControlName="status"></mat-slide-toggle>
+
+        <button type="button" mat-button (click)="shopServSubmit()">Submit</button>
+    </div>
+</form>

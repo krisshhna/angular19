@@ -27,10 +27,19 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AadharCardDirective } from '../../common/direc/aadhar-card.directive';
+import { PanCardDirective } from '../../common/direc/pan-card.directive';
+import { PhoneDirective } from '../../common/direc/phone.directive';
+import { CapLetDirective } from '../../common/direc/cap-let.directive';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AadharCardDirective,
+    PanCardDirective,
+    PhoneDirective,
+    CapLetDirective
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -88,7 +97,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatSnackBarModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AadharCardDirective,
+    PanCardDirective,
+    PhoneDirective,
+    CapLetDirective
   ]
 })
 export class SharedModule { }

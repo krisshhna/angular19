@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="warn">
+    <button type="button" mat-button color="default" (click)="drawer.toggle()">=</button>
+</mat-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer #drawer opened="true" mode="side">
+        <div>
+            <button type="button" mat-button routerLink="/admin/dashboard">DASHBOARD</button> <br/>
+            <button type="button" mat-button routerLink="/admin/user">USER</button> <br/>
+            <button type="button" mat-button routerLink="/admin/shop-serv">SHOP SERVICE</button> <br/>
+            <button type="button" mat-button (click)="logout()">LOGOUT</button>
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div style="min-height:800px; padding:20px;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
