@@ -31,6 +31,9 @@ import { AadharCardDirective } from '../../common/direc/aadhar-card.directive';
 import { PanCardDirective } from '../../common/direc/pan-card.directive';
 import { PhoneDirective } from '../../common/direc/phone.directive';
 import { CapLetDirective } from '../../common/direc/cap-let.directive';
+import { SShopDetailComponent } from './comp/s-shop-detail/s-shop-detail.component';
+import { SCustomerComponent } from './comp/s-customer/s-customer.component';
+import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
 
 
 @NgModule({
@@ -38,7 +41,11 @@ import { CapLetDirective } from '../../common/direc/cap-let.directive';
     AadharCardDirective,
     PanCardDirective,
     PhoneDirective,
-    CapLetDirective
+    CapLetDirective,
+    OnlyNumbDirective,
+
+    SShopDetailComponent,
+    SCustomerComponent
   ],
   imports: [
     CommonModule,
@@ -101,7 +108,11 @@ import { CapLetDirective } from '../../common/direc/cap-let.directive';
     AadharCardDirective,
     PanCardDirective,
     PhoneDirective,
-    CapLetDirective
+    CapLetDirective,
+    OnlyNumbDirective,
+
+    SShopDetailComponent,
+    SCustomerComponent
   ]
 })
 export class SharedModule { }

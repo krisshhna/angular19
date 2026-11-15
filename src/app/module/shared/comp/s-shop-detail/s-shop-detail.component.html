@@ -1,0 +1,60 @@
+<form [formGroup]="shopForm">
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" formControlName="name" appCapLet matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input type="text" formControlName="address" appCapLet matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Gst Numb</mat-label>
+            <input type="text" formControlName="gstNumb" matInput>
+        </mat-form-field>
+    </div>
+    <hr>
+
+    <button type="button" (click)="allService()" mat-button color="primary">+ Shop Service</button>
+    <div class="row">
+        <div formArrayName="allServ">
+            <div *ngFor="let as of allServ.controls; let i=index" [formGroupName]="i">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input type="text" formControlName="name" appCapLet matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Adult Rate</mat-label>
+                        <input type="text" formControlName="aRate" appOnlyNumb matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Adult Labour</mat-label>
+                        <input type="text" formControlName="laRate" appOnlyNumb matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Child Rate</mat-label>
+                        <input type="text" formControlName="cRate" appOnlyNumb matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Child Labour</mat-label>
+                        <input type="text" formControlName="lcRate" appOnlyNumb matInput>
+                    </mat-form-field>
+
+                    <button type="button" *ngIf="i>0" color="warn" mat-button (click)="removeItem(i)">x {{i}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <button type="button" (click)="submitForm()" mat-button color="warn" [disabled]="!shopForm.valid">Submit</button>
+    </div>
+
+</form>
