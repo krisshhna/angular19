@@ -33,6 +33,47 @@
         </mat-form-field>
     </div>
 
+    <button type="button" (click)="addAddress()" mat-button>+ Add</button>
+    <div class="row">
+        <div formArrayName="address">
+            <div *ngFor="let ad of address.controls; let i=index" [formGroupName]="i">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Street</mat-label>
+                        <input type="text" formControlName="street" appCapLet matInput>
+                        <mat-error *ngIf="ad.get('street')?.hasError('required')">Street name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <input type="text" formControlName="state" appCapLet matInput>
+                        <mat-error *ngIf="ad.get('state')?.hasError('required')">State name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>City</mat-label>
+                        <input type="text" formControlName="city" appCapLet matInput>
+                        <mat-error *ngIf="ad.get('city')?.hasError('required')">City name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Location</mat-label>
+                        <input type="text" formControlName="location" appCapLet matInput>
+                        <mat-error *ngIf="ad.get('location')?.hasError('required')">Location name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Pincode</mat-label>
+                        <input type="text" formControlName="pincode" matInput>
+                        <mat-error *ngIf="ad.get('pincode')?.hasError('required')">Pincode name is required.</mat-error>
+                    </mat-form-field>
+
+                    <button type="button" (click)="removeAdd(i)" mat-button *ngIf="i>0" color="warn">x</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <button type="button" mat-button (click)="submitUser()" [disabled]="!userForm.valid">Submit</button>
     </div>

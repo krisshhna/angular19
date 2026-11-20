@@ -26,7 +26,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AadharCardDirective } from '../../common/direc/aadhar-card.directive';
 import { PanCardDirective } from '../../common/direc/pan-card.directive';
 import { PhoneDirective } from '../../common/direc/phone.directive';
@@ -49,6 +49,7 @@ import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
 
     MatIconModule,
@@ -105,6 +106,7 @@ import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
     MatSnackBarModule,
 
     ReactiveFormsModule,
+    FormsModule,
     AadharCardDirective,
     PanCardDirective,
     PhoneDirective,

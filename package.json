@@ -1,6 +1,8 @@
 {
   "name": "my-app",
   "version": "0.0.0",
+  "node":"v22.22.3",
+  "npm":"11.21.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

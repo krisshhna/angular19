@@ -18,6 +18,11 @@ const routes: Routes = [
     path:'tution',
     loadChildren:()=>import('./module/tutions/tutions.module').then((x)=>x.TutionsModule)
   },
+  {
+    path:'hotel',
+    loadChildren:()=>import('./module/hotel/hotel.module').then((x)=>x.HotelModule),
+  }
+
 ];
 
 @NgModule({

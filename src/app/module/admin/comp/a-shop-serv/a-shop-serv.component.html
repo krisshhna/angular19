@@ -3,10 +3,80 @@
         <mat-form-field>
             <mat-label>Name</mat-label>
             <input type="text" appCapLet matInput formControlName="name">
+            <mat-error *ngIf="shopServ.get('name')?.hasError('required')">Name is required.</mat-error>
         </mat-form-field>
 
         <mat-slide-toggle color="warn" checked="true" formControlName="status"></mat-slide-toggle>
 
-        <button type="button" mat-button (click)="shopServSubmit()">Submit</button>
+        <button type="button" mat-button (click)="shopServSubmit()"  [disabled]="!shopServ.valid">{{label}}</button>
     </div>
 </form>
+
+<mat-card>
+    <mat-card-content>
+        <div class="container">
+            <h2>User Management</h2>
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Search User</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search records">
+            </mat-form-field> -->
+
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                <ng-container matColumnDef="_id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        ID
+                    </th>
+
+                    <td mat-cell *matCellDef="let row; let i = index">
+                        {{i + 1}}
+                    </td>
+                </ng-container>
+
+                <!-- Name -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Name
+                    </th>
+
+                    <td mat-cell *matCellDef="let row">
+                        {{row.name}}
+                    </td>
+                </ng-container>
+
+                <!-- Status -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Status
+                    </th>
+
+                    <td mat-cell *matCellDef="let row">
+                        <span [ngClass]="row.status ? 'text-green' : 'text-red'">
+                            {{row.status}}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- Edit -->
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Edit
+                    </th>
+
+                    <td mat-cell *matCellDef="let row">
+                       <button type="button" mat-button color="default" (click)="editService(row._id, row.name, row.status)">Edit</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns; let i=index"></tr>
+            </table>
+
+            <mat-paginator
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>
