@@ -13,8 +13,8 @@ export class HotelService {
     return this.api.post(`hotel`, rec).pipe(catchError((err)=>of([])));
   }
 
-  findAll(page:number){
-    return this.api.get(`hotel/${page}`).pipe(catchError((err)=>of([])));
+  findAll(filter:any){
+    return this.api.get(`hotel/${filter}`).pipe(catchError((err)=>of([])));
   }
 
   findOne(_id:string){

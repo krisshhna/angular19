@@ -6,6 +6,7 @@ import { combineLatest, debounceTime, distinctUntilChanged, forkJoin, Subject } 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-h-hotel-list',
@@ -21,6 +22,7 @@ export class HHotelListComponent {
   pageValue = 1;
   locationValue = '';
   searchValue = '';
+  statusValue = '';
 
   displayedColumns: string[] = [
     '_id',
@@ -50,8 +52,8 @@ export class HHotelListComponent {
     })
   }
 
-  loadRecord(page:number){
-    return this._hotel.findAll(page);
+  loadRecord(filter:any){
+    return this._hotel.findAll(filter);
   }
 
   setRecord(res:any){
@@ -63,20 +65,19 @@ export class HHotelListComponent {
     this.dataSource.sort = this.sort;
   }
 
-  secondHit(nextPage:number){
-    this.loadRecord(nextPage).subscribe({
-      next:((res:any)=>{
-        this.setRecord(res);
-      }),
-      error:((err)=>{
-        console.log(`Error ${err}`);
-      })
-    });
-  }
-
   applyFilter(){
-    let filterRec = {page:this.pageValue, location:this.locationValue, search:this.searchValue};
-    console.log(filterRec);
+    let abc:any = {location:this.locationValue, search:this.searchValue, status:this.statusValue};
+    let filtered:any = Object.fromEntries(Object.entries(abc).filter(([key, value]) => value !== ''));
+    let queryParams = new URLSearchParams(filtered).toString();
+
+    let query = queryParams != '' ? `${this.pageValue}?${queryParams}` : this.pageValue;
+    this.loadRecord(query).subscribe({
+      next:((res)=>{
+        this.setRecord(res);
+      }),error:((err)=>{
+        console.log(`Error message ${err}`);
+      })
+    })
   }
 
   searchFilter(value:string){
