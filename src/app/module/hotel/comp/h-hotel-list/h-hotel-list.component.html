@@ -22,6 +22,14 @@
             </mat-form-field>
 
             <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select [(value)]="statusValue" (selectionChange)="applyFilter()">
+                    <mat-option value="active">Active</mat-option>
+                    <mat-option value="Inactive">In active</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
                 <mat-label>Search</mat-label>
                 <input type="text" matInput [(ngModel)]="searchValue" (input)="searchFilter($any($event.target).value)">
             </mat-form-field>

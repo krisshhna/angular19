@@ -1,1 +1,7 @@
-<p>a-dashboard works!</p>
+<div class="row">
+    <mat-card *ngFor="let ab of allBusiness; let i=index">
+        <mat-card-content>
+            <button type="button" mat-button [routerLink]="ab.link">{{ab.name}}</button>
+        </mat-card-content>
+    </mat-card>
+</div>
