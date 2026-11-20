@@ -1,1 +1,17 @@
-<p>m-login works!</p>
+<form [formGroup]="loginForm">
+    <div class="row">
+        <mat-form-field>
+            <mat-label>UserName</mat-label>
+            <input type="text" matInput formControlName="userName">
+            <mat-error *ngIf="loginForm.get('userName')?.hasError('required')">username is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">password is required.</mat-error>
+        </mat-form-field>
+
+        <button type="button" (click)="loginSubmit()" [disabled]="!loginForm.valid" mat-button>Submit</button>
+    </div>
+</form>

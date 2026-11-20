@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MLoginComponent } from './comp/m-login/m-login.component';
 import { MDashboardComponent } from './comp/m-dashboard/m-dashboard.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MDashboardComponent } from './comp/m-dashboard/m-dashboard.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    SharedModule
   ]
 })
 export class MainModule { }

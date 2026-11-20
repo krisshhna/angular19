@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-a-header',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './a-header.component.css'
 })
 export class AHeaderComponent {
-
+  constructor(public router:Router){}
+  logout(){
+    this.router.navigate(['/login']);
+  }
 }

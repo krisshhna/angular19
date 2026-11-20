@@ -1,0 +1,16 @@
+<mat-toolbar color="accent">
+    <button type="button" mat-button (click)="drawer.toggle()">=</button>
+</mat-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer #drawer opened="true" mode="side">
+        <button type="button" mat-button routerLink="/tailor/shop-detail">Shop Details</button> <br/>
+        <button type="button" mat-button routerLink="/tailor/customer">Customer</button> <br/>
+        <button type="button" mat-button (click)="logout()">Logout</button> <br/>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="min-height:900px; padding:20px">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
