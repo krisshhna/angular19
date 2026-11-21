@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
   styleUrl: './a-user.component.css'
 })
 export class AUserComponent {
+    listing = [{id:3, name:'Samsung', price:15800}, {id:4, name:'Nokia', price:27850}, {id:5, name:'Oppo', price:14500}];
     public fb = inject(FormBuilder);
     userForm  = this.fb.group({
       type:     ['tailor'],

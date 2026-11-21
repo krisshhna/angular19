@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { catchError, of } from 'rxjs';
+import { BehaviorSubject, catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingService {
   constructor(public api:ApiService){}
+
+  cart = new BehaviorSubject({});
+  cartRec = this.cart.asObservable();
+
+  cartPrice = new BehaviorSubject({});
+  updatePrice(rec:Object){
+    this.cartPrice.next(rec);
+  }
+
+  updateCart(rec:Object){
+    this.cart.next(rec);
+  }
 
   create(rec:any){
     let id = rec._id;

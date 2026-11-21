@@ -34,6 +34,7 @@ import { CapLetDirective } from '../../common/direc/cap-let.directive';
 import { SShopDetailComponent } from './comp/s-shop-detail/s-shop-detail.component';
 import { SCustomerComponent } from './comp/s-customer/s-customer.component';
 import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
+import { STestComponent } from './comp/s-test/s-test.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
     OnlyNumbDirective,
 
     SShopDetailComponent,
-    SCustomerComponent
+    SCustomerComponent,
+    STestComponent
   ],
   imports: [
     CommonModule,
@@ -114,7 +116,8 @@ import { OnlyNumbDirective } from '../../common/direc/only-numb.directive';
     OnlyNumbDirective,
 
     SShopDetailComponent,
-    SCustomerComponent
+    SCustomerComponent,
+    STestComponent
   ]
 })
 export class SharedModule { }

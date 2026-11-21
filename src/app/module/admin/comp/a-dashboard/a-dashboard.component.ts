@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './a-dashboard.component.css'
 })
 export class ADashboardComponent {
-  allBusiness = [{name:'Hotel', link:'/hotel/hotel-list'}, {name:'Tailor', link:'/tailor/shop-detail'}, {name:'Classes', link:''}]
+  allBusiness = [{name:'Hotel', link:'/hotel/hotel-list'}, {name:'Tailor', link:'/tailor/shop-detail'}, {name:'Classes', link:''}];
+
+  listing = [{id:1, name:'Apple', price:34500}, {id:2, name:'Google pixel', price:45000}];
 }

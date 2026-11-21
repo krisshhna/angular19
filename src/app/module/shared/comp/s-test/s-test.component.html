@@ -1,0 +1,15 @@
+<br>
+<div class="row">
+    <mat-card *ngFor="let al of allListing; let i=index">
+        <mat-card-content>
+            <h2>{{al.name}}</h2>
+            {{al.price}}
+
+            <div class="merge">
+                <button type="button" mat-button (click)="adjustVal(al.id, '-')">-</button>
+                <button type="button" mat-button>{{modifyValue[al.id] || 0}}</button>
+                <button type="button" mat-button (click)="adjustVal(al.id, '+')">+</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
