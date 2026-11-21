@@ -34,6 +34,10 @@ export class SettingService {
     return this.api.get(`shop-serv/${id}`).pipe(catchError((err)=>of([])));
   }
 
+  createLocation(rec:any){
+    return this.api.post('location', rec).pipe(catchError((err)=>of([])));
+  }
+
   getAllLocation(){
     return this.api.get(`location`).pipe(catchError((err)=>of([])));
   }

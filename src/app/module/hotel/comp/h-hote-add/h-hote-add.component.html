@@ -1,1 +1,155 @@
-<p>h-hote-add works!</p>
+<mat-card>
+    <mat-card-content>All Details for mergeMap</mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="allDetail">
+            <ng-container formGroupName="user">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input type="text" formControlName="name" matInput>
+                        <mat-error *ngIf="allDetail.get('user.name')?.hasError('required')">Name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="text" formControlName="email" matInput>
+                        <mat-error *ngIf="allDetail.get('user.email')?.hasError('required')">Email is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input type="text" formControlName="password" matInput>
+                        <mat-error *ngIf="allDetail.get('user.password')?.hasError('required')">Password is required.</mat-error>
+                    </mat-form-field>
+                
+                    <mat-form-field>
+                        <mat-label>Gender</mat-label>
+                        <input type="text" formControlName="gender" matInput>
+                        <mat-error *ngIf="allDetail.get('user.gender')?.hasError('required')">Gender is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Age</mat-label>
+                        <input type="number" formControlName="age" matInput>
+                        <mat-error *ngIf="allDetail.get('user.age')?.hasError('required')">age is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Phone</mat-label>
+                        <input type="number" formControlName="phone" matInput>
+                        <mat-error *ngIf="allDetail.get('user.phone')?.hasError('required')">Phone number is required.</mat-error>
+                    </mat-form-field>
+                </div>
+                <button type="button" (click)="addAddress()" mat-button>+ Address</button>
+                <div class="row" formArrayName="address">
+                    <div *ngFor="let ad of address.controls; let i=index" [formGroupName]="i">
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-label>Street</mat-label>
+                                <input type="text" formControlName="street" matInput>
+                                <mat-error *ngIf="ad.get('street')?.hasError('required')">Street is required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label>State</mat-label>
+                                <input type="text" formControlName="state" matInput>
+                                <mat-error *ngIf="ad.get('state')?.hasError('required')">State is required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label>City</mat-label>
+                                <input type="text" formControlName="city" matInput>
+                                <mat-error *ngIf="ad.get('city')?.hasError('required')">City is required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label>Location</mat-label>
+                                <input type="text" formControlName="location" matInput>
+                                <mat-error *ngIf="ad.get('location')?.hasError('required')">Location is required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label>Pincode</mat-label>
+                                <input type="number" formControlName="pincode" matInput>
+                                <mat-error *ngIf="ad.get('pincode')?.hasError('required')">Pincode is required.</mat-error>
+                            </mat-form-field>
+
+                            <button type="button" (click)="removeItem(i)" *ngIf="i>0" mat-button color="warn">x</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <hr>
+            <ng-container formGroupName="location">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <input type="text" formControlName="name" matInput>
+                        <mat-error *ngIf="allDetail.get('location.name')?.hasError('required')">State name is required.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row" formArrayName="cities">
+                    <div *ngFor="let c of cities.controls; let j=index" [formGroupName]="j">
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-label>City</mat-label>
+                                <input type="text" formControlName="name" matInput>
+                                <mat-error *ngIf="c.get('name')?.hasError('required')">City name is required.</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <hr>
+            <ng-container formGroupName="hotel">
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input type="text" formControlName="name" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.name')?.hasError('required')">Hotel name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="text" formControlName="email" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.email')?.hasError('required')">Email is required.</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Ratings</mat-label>
+                        <input type="number" formControlName="ratings" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.ratings')?.hasError('required')">Rating is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Phone</mat-label>
+                        <input type="number" formControlName="phone" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.phone')?.hasError('required')">Phone number is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Pincode</mat-label>
+                        <input type="number" formControlName="pincode" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.pincode')?.hasError('required')">Pincode is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Per night Charges</mat-label>
+                        <input type="number" formControlName="per_night" matInput>
+                        <mat-error *ngIf="allDetail.get('hotel.per_night')?.hasError('required')">Rating is required.</mat-error>
+                    </mat-form-field>
+                </div>
+            </ng-container>
+
+            <button type="button" (click)="submitRecord()" mat-raised-button color="primary">Submit {{allDetail.valid}}</button>
+        </form>
+    </mat-card-content>
+</mat-card>
